@@ -1,3 +1,4 @@
+// pages/login.js
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useContext, useState } from 'react';
@@ -7,7 +8,9 @@ import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
 import { LayoutContext } from '../../../../layout/context/layoutcontext';
 import axios from 'axios';
+import dbConfig from '../../../../config/db_config.json'; // Importe o arquivo JSON
 
+const JWT_SECRET = dbConfig[process.env.NODE_ENV].JWT_SECRET;
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,13 +23,15 @@ const LoginPage = () => {
         try {
             const response = await axios.post('/api/login', { email, password });
             if (response.status === 200) {
+                const { token } = response.data;
+                localStorage.setItem('token', token);
                 router.push('/');
             } else {
-                alert('Invalid credentials');
+                alert('Credenciais inválidas');
             }
         } catch (error) {
             console.error('Login error', error);
-            alert('Invalid credentials');
+            alert('Credenciais inválidas');
         }
     };
 

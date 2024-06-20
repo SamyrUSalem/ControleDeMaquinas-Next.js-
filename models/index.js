@@ -1,13 +1,13 @@
-const dbConfig = require('../config/db_config.json');
+import dbConfig from '../config/db_config.json';
 const env = process.env.NODE_ENV || 'development';
 const config = dbConfig[env];
 
-const Sequelize = require('sequelize');
+import Sequelize, { DataTypes } from 'sequelize';
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 const db = {};
 
-const User = require('../lib/models/User')(sequelize, Sequelize.DataTypes);
+const User = require('../lib/models/User')(sequelize, DataTypes);
 db['User'] = User;
 
 Object.keys(db).forEach(modelName => {
@@ -19,4 +19,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
+export default db;

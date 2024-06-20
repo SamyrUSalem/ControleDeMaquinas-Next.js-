@@ -4,20 +4,23 @@
         "password": "Geral12!@",
         "database": "gerall86_ControleDeMaquinas",
         "host": "216.172.172.60",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "JWT_SECRET": "c3f9491954e7206f85db3a1b02e2b165c25a6a379599b4782835cd680cfc8680"
     },
     "test": {
         "username": "gerall86_samyr",
         "password": "Geral12!@",
         "database": "gerall86_ControleDeMaquinas",
         "host": "216.172.172.60",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "JWT_SECRET": "c3f9491954e7206f85db3a1b02e2b165c25a6a379599b4782835cd680cfc8680"
     },
     "production": {
         "username": "gerall86_samyr",
         "password": "Geral12!@",
         "database": "gerall86_ControleDeMaquinas",
         "host": "216.172.172.60",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "JWT_SECRET": "c3f9491954e7206f85db3a1b02e2b165c25a6a379599b4782835cd680cfc8680"
     }
 }
