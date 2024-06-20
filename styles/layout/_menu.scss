@@ -80,13 +80,16 @@
 
             &.active-route {
                 font-weight: 700;
-                color: #4b8ef1;
+                color: var(--primary-color);
             }
 
             &:hover {
                 background-color: var(--surface-hover);
             }
 
+            &:focus {
+                @include focused-inset();
+            }
         }
 
         ul {
